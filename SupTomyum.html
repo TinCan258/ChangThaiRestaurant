@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="site-base" content="http://127.0.0.1:5500/ChangRes/">
+  <title>Súp Tom Yum — Chang</title>
+  <link rel="stylesheet" href="Styles.css">
+</head>
+<body>
+  <header>
+    <nav>
+      <h1>Chang Modern Thai Cuisine</h1>
+      <ul>
+        <li><a href="Home.html">Trang chủ</a></li>
+        <li><a href="about.html">Giới thiệu</a></li>
+        <li><a href="contact.html">Liên hệ</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section class="dish-detail">
+      <h2>Súp Tom Yum</h2>
+
+      <div class="dish-media" style="display:flex;gap:24px;flex-wrap:wrap;align-items:flex-start;">
+        <img src="Photos/SupTomyum.png" alt="Súp Tom Yum" style="width:520px;max-width:100%;border-radius:12px;">
+        <div class="dish-info">
+          <h3>Phục vụ: 1 người · Giá: 149.000 VND</h3>
+
+          <p><strong>Thành phần chính:</strong> tôm tươi, sả, lá chanh (kaffir), galangal, nấm, ớt, nước cốt chanh, nước dùng; tùy biến có chút nước cốt dừa.</p>
+
+          <p><strong>Hàm lượng P–L–G (1 phần):</strong></p>
+          <ul>
+            <li>Protein: 14–18 g</li>
+            <li>Lipid: 6–10 g</li>
+            <li>Glucid: 8–12 g</li>
+          </ul>
+
+          <p><strong>Tổng năng lượng:</strong> ~180 kcal / phần.</p>
+
+          <p><strong>Lưu ý dinh dưỡng:</strong></p>
+          <ul>
+            <li>Súp chua cay, ít calo — phù hợp ăn nhẹ hoặc người theo chế độ giảm cân.</li>
+            <li>Chứa hải sản — lưu ý dị ứng.</li>
+            <li>Có thể điều chỉnh độ cay hoặc thêm nước cốt dừa theo yêu cầu (tăng lipid).</li>
+          </ul>
+
+          <p><strong>Gợi ý dùng:</strong> dùng nóng, ăn kèm cơm trắng hoặc bánh mì nhỏ.</p>
+
+          <p><a class="btn" href="contact.html">Đặt món / Đặt bàn</a></p>
+
+          <div class="qr-box" aria-label="Mã QR">
+            <div class="qr-label">Quét mã để mở trang món</div>
+            <div class="qr-image" data-url=""></div>
+          </div>
+        </div>
+      </div>
+
+      <p style="text-align:center;margin-top:20px;">
+        <a class="btn" href="Home.html" style="margin-left:12px;background:transparent;border:1px solid rgba(212,175,55,0.18);color:var(--panel);">Trang chủ</a>
+      </p>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container" style="display:flex;flex-direction:column;gap:8px;align-items:center;">
+      <div style="font-weight:700;color:var(--accent);">Chang Modern Thai Cuisine</div>
+      <div>Địa chỉ: 77 Trần Nhân Tôn, Phường An Đông, TP. Hồ Chí Minh</div>
+      <div>Giờ mở cửa: Hằng ngày 10:30 — 22:00</div>
+    </div>
+  </footer>
+  <script src="qr.js"></script> 
+</body>
+</html>cd "C:\Users\Tin Dep Trai\Desktop\ChangRes"
+git init
+git branch -M main
+git add .
+git commit -m "Initial commit"
+git remote add origin https://github.com/<your-username>/<repo>.git
+git push -u origin main
