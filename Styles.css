@@ -237,13 +237,19 @@ section h2 {
 
 h2::before { left: 50%; transform: translateX(-50%); }
 
-/* QR box styling */
+/* QR Box */
 .qr-box{
-  margin-top:16px;
   display:flex;
   flex-direction:column;
-  align-items:center;
+  align-items:center;       /* căn giữa QR và chữ */
   gap:8px;
+  text-align:center;        /* chữ căn giữa */
+  max-width:320px;
+  width:100%;
+  padding:16px;
+  background:#a100ac;           /* nền trắng cho nổi bật */
+  border-radius:8px;
+  box-shadow:0 6px 18px rgba(0,0,0,0.08);
 }
 .qr-box .qr-label{
   font-weight:700;
@@ -251,23 +257,30 @@ h2::before { left: 50%; transform: translateX(-50%); }
   font-size:0.98rem;
 }
 .qr-box .qr-image{
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  justify-content:center;
+  display:block;
+  margin:0;
+  width:fit-content;
 }
 .qr-box .qr-image img{
+  display:block;
+  margin:0;
   border-radius:6px;
-  background:#fff;
   padding:6px;
-  box-shadow:0 6px 18px rgba(0,0,0,0.08);
+  max-width:100%;
+  height:auto;
 }
 .qr-box .qr-download{
   text-decoration:none;
   margin-top:6px;
   color:var(--accent);
   font-weight:700;
+  display:inline-block;
 }
+@media(max-width:480px){
+  .qr-box{ max-width:260px; padding:0 8px }
+  .qr-box .qr-image img{ width:200px; height:auto }
+}
+
 
 .footer {
   text-align: justify;
