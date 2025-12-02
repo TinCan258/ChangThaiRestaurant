@@ -1,26 +1,29 @@
 document.addEventListener('DOMContentLoaded', () => {
-  const metaBase = document.querySelector('meta[name="site-base"]')?.content?.trim();
+  const metaBase = document.querySelector('meta[name="site-base"]')?.content?.trim() || '';
 
   document.querySelectorAll('.qr-box').forEach(box => {
     const imgContainer = box.querySelector('.qr-image');
     if (!imgContainer) return;
 
-    let target = (imgContainer.dataset.url && imgContainer.dataset.url.trim() !== '')
+    // 1) data-url ưu tiên (toàn bộ URL)
+    let target = imgContainer.dataset.url && imgContainer.dataset.url.trim() !== ''
       ? imgContainer.dataset.url.trim()
       : '';
 
-    if (!target) {
-      if (metaBase) {
-        const filename = (location.pathname || '').split('/').pop() || '';
-        target = metaBase.endsWith('/') ? (metaBase + filename) : (metaBase + '/' + filename);
-      } else if (location.protocol && location.protocol.startsWith('http')) {
-        target = window.location.href;
-      } else {
-        // fallback — yêu cầu người dùng đặt meta site-base hoặc data-url
-        console.error('QR generation: no target URL. Add <meta name="site-base"> in <head> or set data-url on .qr-image.');
-        return;
+    // 2) nếu không có data-url, dùng meta base + data-file (tên file) hoặc current filename
+    if (!target && metaBase) {
+      const fileFromAttr = imgContainer.dataset.file && imgContainer.dataset.file.trim() !== ''
+        ? imgContainer.dataset.file.trim()
+        : (location.pathname.split('/').pop() || 'index.html');
+      try {
+        target = new URL(fileFromAttr, metaBase.endsWith('/') ? metaBase : metaBase + '/').toString();
+      } catch (e) {
+        target = metaBase + (metaBase.endsWith('/') ? '' : '/') + fileFromAttr;
       }
     }
+
+    // 3) fallback dùng window.location.href
+    if (!target) target = window.location.href;
 
     const size = imgContainer.dataset.size || '240x240';
     const src = 'https://api.qrserver.com/v1/create-qr-code/?size=' + encodeURIComponent(size) + '&data=' + encodeURIComponent(target);
@@ -33,13 +36,13 @@ document.addEventListener('DOMContentLoaded', () => {
     img.loading = 'lazy';
     img.width = parseInt(size.split('x')[0], 10) || 240;
     img.height = parseInt(size.split('x')[1], 10) || 240;
-    img.style.display = 'block';
     img.style.maxWidth = '100%';
     img.style.height = 'auto';
     img.style.borderRadius = '8px';
     img.style.background = '#fff';
     img.style.padding = '6px';
     img.style.boxShadow = '0 6px 18px rgba(0,0,0,0.08)';
+    img.setAttribute('aria-hidden', 'false');
     imgContainer.appendChild(img);
 
     const dl = document.createElement('a');
