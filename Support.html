@@ -1,9 +1,136 @@
 <!DOCTYPE html>
 <html lang="vi">
-<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Chăm sóc KH</title></head>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="site-base" content="https://changthairestaurant.netlify.app/" />
+  <title>CHANG - Modern Thai Cuisine — Chăm sóc KH</title>
+  <link rel="stylesheet" href="Styles.css" />
+  <link rel="icon" type="image/png" href="Photos/favicon.png" />
+</head>
 <body>
-  <h1>Chăm sóc Khách hàng</h1>
-  <p>Thông tin hỗ trợ, phản hồi và khiếu nại.</p>
-  <a href="Home.html">Quay về Trang chủ</a>
+  <header>
+    <nav>
+      <a class="brand" href="Home.html">
+        <img src="Photos/Logo.png" alt="CHANG logo" class="site-logo" />
+      </a>
+      <ul>
+        <li><a href="Home.html">Trang chủ</a></li>
+        <li><a href="About.html">Giới thiệu</a></li>
+        <li><a href="Contact.html">Liên hệ đặt bàn</a></li>
+        <li><a href="Support.html">Chăm sóc KH</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section id="support" aria-labelledby="support-title">
+      <h1 id="support-title" style="text-align:center;margin-bottom:8px;">Chăm sóc Khách hàng</h1>
+      <p style="text-align:center;margin-bottom:18px;max-width:900px;margin-left:auto;margin-right:auto;">
+        Gửi yêu cầu hỗ trợ, phản hồi hoặc khiếu nại. Điền form bên trái — chúng tôi sẽ phản hồi trong vòng 24 giờ làm việc.
+      </p>
+
+      <div class="contact-card" role="region" aria-label="Form hỗ trợ và thông tin liên hệ" style="display:grid;grid-template-columns:1fr 380px;gap:22px;">
+        <!-- Form -->
+        <div>
+          <h2 style="margin-top:0;margin-bottom:8px;">Gửi yêu cầu</h2>
+
+          <form id="supportForm" novalidate>
+            <label for="s-name">Họ và tên</label>
+            <input id="s-name" name="name" type="text" required placeholder="Nguyễn Văn A" />
+
+            <label for="s-phone">Số điện thoại</label>
+            <input id="s-phone" name="phone" type="tel" required placeholder="+84 9xx xxx xxx" />
+
+            <label for="s-email">Email (nếu có)</label>
+            <input id="s-email" name="email" type="email" placeholder="you@example.com" />
+
+            <label for="s-order">Mã đơn / Ngày (nếu có)</label>
+            <input id="s-order" name="order" type="text" placeholder="VD: ORD12345 hoặc 2025-12-01" />
+
+            <label for="s-message">Nội dung hỗ trợ / phản hồi</label>
+            <textarea id="s-message" name="message" rows="5" required placeholder="Mô tả vấn đề hoặc yêu cầu..."></textarea>
+
+            <label for="s-file">Đính kèm ảnh / hóa đơn (tùy chọn)</label>
+            <input id="s-file" name="file" type="file" accept="image/*,application/pdf" />
+
+            <div class="btn-wrap" style="margin-top:12px;">
+              <button type="submit" class="btn btn--block btn--primary">Gửi yêu cầu</button>
+            </div>
+          </form>
+
+          <div id="supportResult" role="status" aria-live="polite" class="msg" style="margin-top:12px;display:none"></div>
+
+          <hr style="margin:20px 0;border:none;border-top:1px solid rgba(0,0,0,0.06)" />
+
+          <h3 style="margin:0 0 8px;">Hướng dẫn nhanh khiếu nại</h3>
+          <ol style="margin-top:6px;line-height:1.6;">
+            <li>Ghi rõ mã đơn, thời gian và nội dung vấn đề.</li>
+            <li>Đính kèm ảnh hoặc video (nếu có) để xử lý nhanh.</li>
+            <li>Nhân viên sẽ liên hệ xác nhận và hướng dẫn trong 24 giờ làm việc.</li>
+            <li>Với trường hợp khẩn cấp, gọi hotline để được xử lý ngay.</li>
+          </ol>
+        </div>
+
+        <aside class="contact-side" aria-label="Thông tin liên hệ">
+          <div class="contact-details">
+            <h4 style="margin-top:0">Thông tin liên hệ</h4>
+            <p style="margin:6px 0;"><strong>Địa chỉ:</strong><br>77 Trần Nhân Tôn, Phường An Đông, TP. Hồ Chí Minh</p>
+            <p style="margin:6px 0;"><strong>Hotline đặt bàn:</strong><br><a href="tel:0393220129">0393220129</a></p>
+            <p style="margin:6px 0;"><strong>Hotline CSKH:</strong><br><a href="tel:0393220129">0393220129</a></p>
+            <p style="margin:6px 0;"><strong>Email:</strong><br><a href="mailto:info@changvietnam.vn">info@changvietnam.vn</a></p>
+            <p style="margin:6px 0;"><strong>Giờ hỗ trợ:</strong><br>Hằng ngày 09:00 — 21:00</p>
+          </div>
+
+          <div class="contact-details">
+            <h4 style="margin-top:0">Bản đồ</h4>
+            <div style="width:100%;height:200px;border-radius:8px;overflow:hidden;">
+              <iframe
+                title="Vị trí CHANG"
+                src="https://www.google.com/maps?q=77+Tr%E1%BA%A7n+Nh%C3%A2n+T%E1%BB%93n,+Ho+Chi+Minh&output=embed"
+                width="100%" height="100%" style="border:0" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+          </div>
+
+          <div class="contact-details">
+            <h4 style="margin-top:0">Chính sách & Hướng dẫn</h4>
+            <p style="margin:6px 0;">Xem chính sách hoàn tiền, đổi trả và hướng dẫn phục vụ trên trang <a href="About.html">Giới thiệu</a>. Liên hệ hotline nếu cần xử lý nhanh.</p>
+          </div>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container" style="display:flex;flex-direction:column;gap:8px;align-items:center;">
+      <div style="font-weight:700;color:var(--accent);">CHANG - Modern Thai Cuisine</div>
+      <div>Địa chỉ: 77 Trần Nhân Tôn, Phường An Đông, TP. Hồ Chí Minh, Việt Nam</div>
+      <div>Giờ mở cửa: Hằng ngày 10:30 — 22:00</div>
+      <div>Đặt bàn & hỗ trợ: <a href="tel:0393220129" style="color:var(--panel);text-decoration:underline;">0393220129</a> · <a href="https://www.facebook.com/maihuyen.1802" style="color:var(--panel);text-decoration:underline;">Thông tin liên hệ</a></div>
+      <div>© 2025 CHANG - Modern Thai Cuisine — Tất cả quyền được bảo lưu.</div>
+    </div>
+  </footer>
+
+  <script>
+    (function(){
+      const form = document.getElementById('supportForm');
+      const result = document.getElementById('supportResult');
+
+      form.addEventListener('submit', function(e){
+        e.preventDefault();
+        if (!form.checkValidity()) { form.reportValidity(); return; }
+
+        result.className = 'msg';
+        result.style.display = 'block';
+        result.textContent = 'Đang gửi yêu cầu...';
+
+        setTimeout(() => {
+          result.className = 'msg msg--success';
+          result.textContent = 'Yêu cầu đã được gửi. Nhân viên CSKH sẽ liên hệ trong vòng 24 giờ làm việc.';
+          form.reset();
+        }, 900);
+      });
+    })();
+  </script>
 </body>
 </html>

@@ -1,9 +1,134 @@
 <!DOCTYPE html>
 <html lang="vi">
-<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Đặt bàn - Chang</title></head>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="site-base" content="https://changthairestaurant.netlify.app/">
+  <title>Đặt bàn - Chang Modern Thai Cuisine</title>
+  <link rel="stylesheet" href="Styles.css">
+  <link rel="icon" type="image/png" href="Photos/favicon.png">
+</head>
 <body>
-  <h1>Liên hệ & Đặt bàn</h1>
-  <p>Nếu form đã gửi, hiển thị thông tin đặt bàn hoặc hướng dẫn tiếp theo ở đây.</p>
-  <a href="Home.html">Quay về Trang chủ</a>
+  <header>
+    <nav>
+      <a class="brand" href="Home.html">
+        <img src="Photos/Logo.png" alt="Chang logo" class="site-logo">
+      </a>
+      <ul>
+        <li><a href="Home.html">Trang chủ</a></li>
+        <li><a href="About.html">Giới thiệu</a></li>
+        <li><a href="Contact.html">Liên hệ đặt bàn</a></li>
+        <li><a href="Support.html">Chăm sóc KH</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section id="contact" aria-labelledby="contact-title">
+      <h2 id="contact-title">Liên hệ & Đặt bàn</h2>
+
+      <div class="contact-card" role="region" aria-label="Thông tin liên hệ và đặt bàn">
+        <div class="contact-intro">
+          <h3>Đặt bàn nhanh</h3>
+          <p>Vui lòng điền thông tin bên dưới — chúng tôi sẽ xác nhận qua điện thoại hoặc email trong vòng 30 phút. Nếu cần hỗ trợ gấp, gọi trực tiếp số điện thoại.</p>
+
+          <form id="bookingForm" action="#" method="post" novalidate>
+            <label for="name">Họ và tên</label>
+            <input id="name" name="name" type="text" required placeholder="Nguyễn Văn A" />
+
+            <label for="phone">Số điện thoại</label>
+            <input id="phone" name="phone" type="tel" required placeholder="+84 9xx xxx xxx" pattern="[\d+\-\s\(\)]{6,}" />
+
+            <label for="email">Email (nếu có)</label>
+            <input id="email" name="email" type="email" placeholder="you@example.com" />
+
+            <div style="display:flex;gap:12px;flex-wrap:wrap;">
+              <div style="flex:1;min-width:140px;">
+                <label for="date">Ngày</label>
+                <input id="date" name="date" type="date" required />
+              </div>
+              <div style="flex:1;min-width:140px;">
+                <label for="time">Giờ</label>
+                <input id="time" name="time" type="time" required />
+              </div>
+              <div style="flex:1;min-width:120px;">
+                <label for="guests">Số người</label>
+                <input id="guests" name="guests" type="number" min="1" max="50" required value="2" />
+              </div>
+            </div>
+
+            <label for="requests">Yêu cầu / Ghi chú</label>
+            <textarea id="requests" name="requests" rows="3" placeholder="Ví dụ: bàn gần cửa sổ, sinh nhật,..."></textarea>
+
+            <label style="display:flex;gap:8px;align-items:center;font-size:0.95rem;color: black;">
+              <input type="checkbox" id="consent" required />
+              <span>Tôi đồng ý nhận cuộc gọi / email xác nhận từ nhà hàng</span>
+            </label>
+
+            <div class="btn-wrap" style="margin-top:12px;">
+              <button type="submit" class="btn btn--block">Gửi yêu cầu đặt bàn</button>
+            </div>
+          </form>
+
+          <div id="bookingResult" role="status" aria-live="polite" style="display:none;margin-top:12px;padding:12px;border-radius:8px;background:rgba(212,175,55,0.08);color:var(--bg-dark)"></div>
+        </div>
+
+        <aside class="contact-side" aria-label="Chi tiết liên hệ">
+          <div class="contact-details" aria-hidden="false">
+            <h4>Thông tin liên hệ</h4>
+            <p><strong>Địa chỉ:</strong><br>77 Trần Nhân Tôn, Phường An Đông, TP. Hồ Chí Minh</p>
+            <p><strong>Hotline đặt bàn:</strong><br><a href="tel:+84000000000">0393220129</a></p>
+            <p><strong>Email:</strong><br><a href="mailto:info@changvietnam.vn">info@changthairestaurant.com</a></p>
+            <p><strong>Giờ mở cửa:</strong><br>Hằng ngày 10:30 — 22:00</p>
+          </div>
+
+          <div class="contact-details" style="padding:8px;">
+            <h4>Bản đồ</h4>
+            <div style="width:100%;height:220px;border-radius:10px;overflow:hidden;">
+              <iframe
+                title="Vị trí Chang Modern Thai Cuisine"
+                src="https://www.google.com/maps?q=77+Tr%E1%BA%A7n+Nh%C3%A2n+T%E1%BB%93n,+Ho+Chi+Minh&output=embed"
+                width="100%" height="100%" style="border:0;" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+          </div>
+
+          <div class="contact-details" style="display:flex;flex-direction:column;gap:8px;">
+            <h3>Hỗ trợ & Quy trình</h3>
+            <p>Sau khi gửi yêu cầu, nhân viên sẽ liên hệ để xác nhận thời gian và yêu cầu đặc biệt. Đặt cọc/chi tiết thanh toán sẽ được hướng dẫn khi xác nhận (nếu cần).</p>
+              <a class="btn" href="Support.html">Yêu cầu hỗ trợ</a>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container" style="display:flex;flex-direction:column;gap:8px;align-items:center;">
+      <div style="font-weight:700;color:var(--accent);">CHANG - Modern Thai Cuisine</div>
+      <div>Địa chỉ: 77 Trần Nhân Tôn, Phường An Đông, TP. Hồ Chí Minh, Việt Nam</div>
+      <div>Giờ mở cửa: Hằng ngày 10:30 — 22:00</div>
+      <div>Đặt bàn & hỗ trợ: <a href="tel:0393220129" style="color:var(--panel);text-decoration:underline;">0393220129</a> · <a href="https://www.facebook.com/maihuyen.1802" style="color:var(--panel);text-decoration:underline;">Thông tin liên hệ</a></div>
+      <div>© 2025 CHANG - Modern Thai Cuisine — Tất cả quyền được bảo lưu.</div>
+    </div>
+  </footer>
+
+  <script>
+    // Simple client-side submit handler — replace with server endpoint as needed
+    document.getElementById('bookingForm').addEventListener('submit', function (e) {
+      e.preventDefault();
+      const form = e.target;
+      if (!form.checkValidity()) {
+        form.reportValidity();
+        return;
+      }
+      const result = document.getElementById('bookingResult');
+      result.style.display = 'block';
+      result.textContent = 'Đang gửi yêu cầu...';
+      setTimeout(() => {
+        result.textContent = 'Yêu cầu đặt bàn đã được gửi. Nhân viên sẽ liên hệ để xác nhận trong vòng 30 phút.';
+        form.reset();
+      }, 900);
+    });
+  </script>
 </body>
-</html>
