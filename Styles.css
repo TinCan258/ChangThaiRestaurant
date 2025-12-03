@@ -3,7 +3,7 @@
 :root{
   --bg-dark:#0f0b08;
   --primary:#7a172e;
-  --accent:#d4af37;
+  --accent:#ffffff;
   --panel:#fff7ee;
   --muted:#7a6a5f;
   --glass:rgba(255,255,255,0.06);
@@ -46,15 +46,15 @@ nav{
   align-items:center;
   justify-content:space-between;
   padding:12px var(--pad);
-  background:rgba(255,255,255,0.02);
+  background:rgb(136, 0, 0);
   border-bottom:1px solid rgba(212,175,55,0.08);
 }
 nav h1{
   margin:0;
   font-size:clamp(1.3rem,4vw,1.6rem);
   font-weight:700;
-  color:var(--accent);
-  letter-spacing:0.8px;
+  color:rgb(136, 0, 0);
+  letter-spacing:0.5px;
 }
 nav ul{
   display:flex;
@@ -73,7 +73,7 @@ nav a{
   transition:all .2s ease;
 }
 nav a:hover,nav a:focus-visible{
-  background:var(--accent);
+  background:rgba(0, 0, 0, 0);
   color:var(--bg-dark);
   transform:translateY(-2px);
 }
@@ -281,11 +281,36 @@ h2::before { left: 50%; transform: translateX(-50%); }
   .qr-box .qr-image img{ width:200px; height:auto }
 }
 
+.brand{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  text-decoration:none;
+}
+.site-logo{
+  width:72px;
+  height:auto;
+  display:block;
+  border-radius:8px;
+  object-fit:contain;
+}
+.brand-text{
+  color:var(--accent);
+  font-weight:700;
+  font-size:clamp(1rem,2.2vw,1.25rem);
+  line-height:1;
+}
+
+@media(max-width:720px){
+  .site-logo{ width:56px }
+  .brand-text{ font-size:1rem }
+  nav ul{ gap:8px }
+}
 
 .footer {
   text-align: justify;
   padding: 14px var(--pad);
-  background: rgb(31, 18, 55);
+  background: rgb(136, 0, 0);
   border-top: 1px solid rgba(212, 175, 55, 0.08);
   color: var(--panel);
   font-size: 0.95rem;
